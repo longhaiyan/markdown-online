@@ -1,0 +1,42 @@
+{
+  "name": "server",
+  "private": true,
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "pm2 start index.js --watch",
+    "dev": "gulp",
+    "lint": "eslint .",
+    "lint1": "eslint src/ --quiet",
+    "fix": "eslint --fix .",
+    "clean:dist": "rimraf dist",
+    "build": "npm run clean:dist && gulp build"
+  },
+  "repository": {},
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@dxy/eslint-config-dxy-base": "^1.2.1",
+    "eslint": "^3.0.0",
+    "gulp": "^3.9.0",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "5.0.0",
+    "gulp-eslint": "4.0.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-nodemon": "2.2.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "1.6.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-webserver": "^0.9.1",
+    "rimraf": "^2.5.2"
+  },
+  "dependencies": {
+    "koa": "2.4.1",
+    "koa-bodyparser": "4.2.0",
+    "koa-router": "7.3.0",
+    "mongoose": "4.13.6"
+  }
+}

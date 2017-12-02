@@ -1,0 +1,11 @@
+{
+  "rules": {
+  },
+  "env": {
+  },
+  
+  "extends": "@dxy/eslint-config-dxy-base/index",
+  
+  "parserOptions": {
+  }
+}

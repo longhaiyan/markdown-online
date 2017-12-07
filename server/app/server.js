@@ -3,16 +3,20 @@ const bodyParser = require('koa-bodyparser');
 // const cors = require('koa2-cors');
 const router = require('./router');
 const config = require('./config');
-// const auth = require('./controller/auth');
-require('./schedule');
 
 const app = new Koa();
 
 // db start
-const { host, database, port } = config.db;
+const { url} = config.db;
 const mongoose = require('mongoose');
+mongoose.connect(url, {useMongoClient: true});
 mongoose.Promise = global.Promise;
-mongoose.connect(host, database, port);
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () => {
+    console.log('链接成功');
+});
 
 // 跨域
 // app.use(cors({
@@ -26,3 +30,4 @@ app
   .use(router.routes())
   .use(router.allowedMethods());
 app.listen(config.port);
+console.log('当前监听接口', '127.0.0.1:' + config.port);

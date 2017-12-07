@@ -1,5 +1,6 @@
 {
   "rules": {
+    "arrow-parens": ["error", "as-needed"]
   },
   "env": {
   },
@@ -7,5 +8,6 @@
   "extends": "@dxy/eslint-config-dxy-base/index",
   
   "parserOptions": {
+    "ecmaVersion": 8
   }
 }
